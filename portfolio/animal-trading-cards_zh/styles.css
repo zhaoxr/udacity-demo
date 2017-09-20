@@ -1,0 +1,26 @@
+/* 添加 CSS */
+body{font:14px/28px Arial,helvetica,sans-serif;}
+ul,p{
+    margin: 0;
+    padding:0;
+}
+ul{list-style: none}
+.box{
+    width: 400px;
+    margin: 10px auto;
+    box-shadow: 6px 6px 2px 1px #ddd;
+}
+.box,.desc{
+    border:1px solid #d4d4d4;
+    padding: 10px
+}
+.p{
+    font-style: italic;
+    margin: 10px 0 20px;
+}
+.ul{
+    margin-bottom: 20px;
+}
+.ul span{
+    font-weight: 700;
+}
