@@ -1,40 +1,63 @@
-*{box-sizing: border-box;font-family: "PingFang Sc",'Helvetica Neue',Arial;}
-body{color: #2d3c49;}
-a{color:#2d3c49;}
-img{max-width: 100%}
-hr{
+* {
+    box-sizing: border-box;
+    font-family: "PingFang Sc", 'Helvetica Neue', Arial;
+}
+
+body {
+    color: #2d3c49;
+}
+
+a {
+    color: #2d3c49;
+}
+
+img {
+    max-width: 100%
+}
+
+hr {
     height: 3px;
     background-color: #7d97ad;
 }
-.text-muted{
+
+.text-muted {
     font-size: 20px;
 }
-.text-light{
+ 
+.text-light {
     font-weight: 300;
 }
-.text-title{
+
+.text-title {
     font-weight: 100;
     font-size: 60px;
 }
-.sm-title{
+
+.sm-title {
     font-size: 20px;
 }
-.ft-light{
+
+.ft-light {
     color: #7d97ad;
 }
-.container{
+
+.container {
     max-width: 800px;
     margin: 0 auto;
 }
-.logo{
+
+.logo {
     margin-top: 20px;
     width: 60px;
 }
 
+
 /*bootstrap 关闭按钮样式*/
+
 .modal-header .close {
     margin-top: -2px;
 }
+
 button.close {
     -webkit-appearance: none;
     padding: 0;
@@ -42,6 +65,7 @@ button.close {
     background: 0 0;
     border: 0;
 }
+
 .close {
     float: right;
     font-size: 21px;
