@@ -3,7 +3,7 @@ This is empty on purpose! Your code to build the resume will go here.
  */
 
 var bio = {
-    name: "赵晓荣",
+    name: "colin",
     role: "Web前端开发",
     contacts: [{
         "mobile": "17012345678",
