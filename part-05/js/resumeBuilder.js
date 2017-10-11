@@ -5,14 +5,14 @@ This is empty on purpose! Your code to build the resume will go here.
 var bio = {
     name: "colin",
     role: "Web前端开发",
-    contacts: [{
+    contacts: {
         "mobile": "17012345678",
         "email": "17012345678@163.com",
         "twitter": "www.blog.com",
         "github": "https://github.com/",
         "blog": "https://blog.com/",
-        "location": "北京",
-    }],
+        "location": "北京"
+    },
     welcomeMessage: "Successful people always ready, go do what losers refused to challenge",
     skills: ["HTML", "CSS", "JavaScript", "Vue", "requireJS"],
     biopic: "images/fry.jpg"
@@ -25,17 +25,15 @@ bio.display = function() {
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     var formattedGeneric = HTMLcontactGeneric.replace("%contact%", "welcome here");
 
-    $("#header").prepend(formattedName, formattedRole);
-    $("#header").append(formattedPic, formattedMsg, HTMLskillsStart);
-    bio.contacts.forEach(function(ele) {
-        var formattedMobile = HTMLmobile.replace("%data%", ele.mobile);
-        var formattedEmail = HTMLemail.replace("%data%", ele.email);
-        var formattedTwitter = HTMLtwitter.replace("%data%", ele.twitter);
-        var formattedGithub = HTMLgithub.replace("%data%", ele.github);
-        var formattedLocation = HTMLlocation.replace("%data%", ele.location);
-        $("#topContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
-        $("#footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
-    })
+    $("#header").prepend(formattedName, formattedRole).append(formattedPic, formattedMsg, HTMLskillsStart);
+
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+    $("#topContacts,#footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
 
     bio.skills.forEach(function(element, index) {
         $("#skills").append(HTMLskills.replace("%data%", bio.skills[index]));
@@ -64,12 +62,13 @@ var education = {
         "url": "https://cn.udacity.com/"
     }]
 };
+
 education.display = function() {
 
 
     education.schools.forEach(function(ele) {
         $("#education").append(HTMLschoolStart);
-        var formattedName = HTMLschoolName.replace("%data%", ele.name);
+        var formattedName = HTMLschoolName.replace("%data%", ele.name).replace("#", ele.url);
         var formattedDegree = HTMLschoolDegree.replace("%data%", ele.degree);
         var formattedDates = HTMLschoolDates.replace("%data%", ele.dates);
         var formattedLocation = HTMLschoolLocation.replace("%data%", ele.location);
@@ -81,10 +80,10 @@ education.display = function() {
 
     for (var i = 0; i < education.onlineCourses.length; i++) {
         // console.info(education.onlineCourses[i].title);
-        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
         var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
 
         $(".education-entry:last").append(formattedTitle + formattedSchool, formattedDates, formattedURL);
     }
@@ -93,7 +92,7 @@ education.display = function() {
 }
 var work = {
     jobs: [{
-        "emplayer": "普通员工",
+        "employer": "普通员工",
         "title": "web前端开发",
         "location": "北京市海淀区北四环西路111号",
         "dates": "2016-01-19",
@@ -104,7 +103,7 @@ work.display = function() {
     $("#workExperience").append(HTMLworkStart);
 
     work.jobs.forEach(function(ele) {
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", ele.emplayer);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", ele.employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", ele.title);
         var formattedDates = HTMLworkDates.replace("%data%", ele.dates);
         var formattedLocation = HTMLworkLocation.replace("%data%", ele.location);
